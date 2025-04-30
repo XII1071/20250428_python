@@ -97,6 +97,10 @@ print("%s" % "논리형")
 print("{0:=^20}".format("논리형"))
 print(f"{"논리형":=^20}")
 print(a=False)
+print(a == False)
+print(bool(-1))
+print(bool(0))
+print(bool(1))
 
 
 
