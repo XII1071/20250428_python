@@ -44,6 +44,8 @@ print('{:8.3f}'.format(3.141592))  # 반올림 발생
 print("{{}}는 클래스".format())
 
 print(f'{"f 포맷":=^20}')
+print("{0:=^20}".format("f 포맷"))
+print(f'{"f 포맷":=^20}')
 print(f'f 포맷')
 print(f'{10}')
 print(f'{"Hello Python"}')
@@ -75,6 +77,7 @@ with open('test.txt', 'w') as f:
 f = open('test.txt', 'r')
 lines = f.readlines()
 for line in lines: print(line, end='')
+
 
 
 

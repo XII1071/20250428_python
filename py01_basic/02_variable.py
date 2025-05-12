@@ -57,15 +57,14 @@ a = 0xa
 a = 0XA
 print(a, type(a))
 
-del a # 변수를 더 이상 사용하지 않을 때
+del a  # 변수를 더 이상 사용하지 않을 때
 # print(a, type(a))
 
-a = 12.34567890123456789 # 소수 15째자리(절삭)
+a = 12.34567890123456789  # 소수 15째자리(절삭)
 print(a, type(a))
-print(int(a), type(int(a)))
-print('기존 값: a=%f' % a) # 소수 6째자리(반올림)
-print('기존 값: a={}'.format(a) )
-print(f'기존 값: a={a}') # f-string을 이용한 출력
+print('기존 값: a=%f' % a)  # 소수 6째자리(반올림)
+print('기존 값: a={}'.format(a))
+print(f'기존 값: a={a}')  # f-string을 이용한 출력
 print(f'소수 첫번째 자리 표기: a={round(a, 1)}')
 print(f'소수 두번째 자리 표기: a={round(a, 2)}')
 print(f'소수 세번째 자리 표기: a={round(a, 3)}')
@@ -77,8 +76,8 @@ print(f'소수 네번째 자리 표기: a={a:.4f}')
 print('소수 네번째 자리 표기: a={:.4f}'.format(a))
 print('소수 네번째 자리 표기: a=%.4f' % a)
 print('소수 네번째 자리 표기: a=', format(a, ".4f"))
-print(123e2, type(123e2))
-print(123e-2, type(123e-2))
+print("1)", 123e2, type(123e2))
+print("2)", 123e-2, type(123e-2))
 
 print(f"{"complex":=^20}")
 a = 10 + complex(3)
@@ -87,28 +86,78 @@ print(a.real, a.imag)
 
 print(f"{"None":=^20}")
 print(type(None), None)
-print('' is None)
+print('' == None)
 a = None
-a: int | None #Python 3.10 이상
+a: int | None  # Python 3.10 이상
 a = True
 print(a, type(a))
 
 print("%s" % "논리형")
 print("{0:=^20}".format("논리형"))
 print(f"{"논리형":=^20}")
-print(a=False)
 print(a == False)
-print(bool(-1))
-print(bool(0))
-print(bool(1))
+print((1 > 2) or (2 < 5))  # True
+print(1 > 2) or (2 > 5)  # False
+print(1 > 2)
+print(False) or (2 < 5)
 
+print(f"{"문자형":=^20}")
+print("hello", type("hello"))
 
+print(f"{"형변환 함수":=^20}")
+print("int 형변환함수", int(12.34), type(int(12.34)))
+print("float 형변환함수", float(123), type(float(123)))
+print("complex 형변환함수", complex(3, 4), type(complex(3, 4)))
+print("bool 형변환함수 bool(-1)", bool(-1))
+print("bool 형변환함수 bool(0)", bool(0))
+print("bool 형변환함수 bool(1)", bool(1))
+print("bool 형변환함수 bool(0.1)", bool(0.1))
+print("bool 형변환함수 bool('')", bool(''))
+print("bool 형변환함수 bool(None)", bool(None))
+print("str 형변환함수 str(None)", str(None))
+print("str 형변환함수 str(97)", str(97))
+print("chr 형변환함수 chr(97)", chr(97))
+try:
+  b = int("a10")  # 문자열, 수치자료를 int type 변경
+  b = float("a0.12")  # 문자열, 수치자료를 float type 변경
+except:
+  print("숫자가 아닌 문자열이 포함되어 있습니다.")
 
+string = "abc123def456"
+number_string = ""
+for char in string:
+    if char.isdigit():
+        number_string += char
+number = int(number_string)
+print(number, type(number)) # 출력: 123456
 
+string = "abc123def456"
+parts = string.split()
+numbers = list(filter(str.isdigit, parts))
+# number = int("".join(numbers).strip())
+print(numbers) # 출력: 123456
 
+a="A";
+print(ascii(a), end=' '); print(str(a), end=' '); print(ord(a));
+a=65;
+# chr()는 매개변수가 숫자여야만 함.
+print(ascii(a), end=' '); print(str(a), end=' '); print(chr(a));
 
+print("=" * 10)
+print("Hello Python"[0])
+print("Hello Python"[-3])
+print("Hello Python"[0:12:3])  # [a:b:c] c폭
 
+# python에는 상수가 없다.  python은 동적언어이기 때문에 상수가 불필요
+from typing import Final
+SIZE:Final = 5
+SIZE = 10
+print(SIZE)
 
+import constant as const
+const.PI = 3.14
+print(const.PI)
 
-
-
+# 에러 발생. 재할당이 안됨.
+# const.PI = 3.141592
+# print(const.PI)
